@@ -20,9 +20,11 @@ export class Start extends Phaser.Scene {
 
     create() {
         this.background = this.add.video(640, 360, 'background');
+        this.background.setMute(true);
         this.background.play(true);
 
         this.girlgreet = this.add.video(640, 360, 'girlgreet');
+        this.girlgreet.setMute(true);
         this.girlgreet.play(true);
 
         //const logo = this.add.image(640, 200, 'logo');
