@@ -14,6 +14,7 @@ export class Start extends Phaser.Scene {
             'assets/video/girl_greet.mov',
             'assets/video/girl_greet.webm'
         ]);
+        this.load.video('girlgreet_mp4', 'assets/video/girl_greet.mp4');
 
         this.load.video('background', 'assets/background.mp4');
     }
@@ -23,9 +24,17 @@ export class Start extends Phaser.Scene {
         this.background.setMute(true);
         this.background.play(true);
 
-        this.girlgreet = this.add.video(640, 360, 'girlgreet');
+        this.girlgreet = this.add.video(340, 360, 'girlgreet');
         this.girlgreet.setMute(true);
         this.girlgreet.play(true);
+
+        this.girlgreet_mp4 = this.add.video(940, 360, 'girlgreet_mp4');
+        this.girlgreet_mp4.setMute(true);
+        this.girlgreet_mp4.play(true);
+
+        this.add.text(340, 100, 'Mov/Web', { font: '64px Courier', fill: '#000000' }).setOrigin(0.5);
+
+        this.add.text(940, 100, 'MP4', { font: '64px Courier', fill: '#ffffff' }).setOrigin(0.5);
 
         //const logo = this.add.image(640, 200, 'logo');
 
