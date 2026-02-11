@@ -28,17 +28,11 @@ export class Start extends Phaser.Scene {
         this.girlgreet.setMute(true);
         this.girlgreet.play(true);
 
-        this.girlgreet_mp4 = this.add.video(940, 360, 'girlgreet_mp4');
-        this.girlgreet_mp4.setMute(true);
-        this.girlgreet_mp4.play(true);
 
         this.add.text(340, 100, 'Mov/Web', { font: '64px Courier', fill: '#000000' }).setOrigin(0.5);
-
-        this.add.text(940, 100, 'MP4', { font: '64px Courier', fill: '#ffffff' }).setOrigin(0.5);
-
         //const logo = this.add.image(640, 200, 'logo');
 
-        const ship = this.add.sprite(140, 360, 'ship');
+        const ship = this.add.sprite(740, 360, 'ship');
 
         ship.anims.create({
             key: 'fly',
