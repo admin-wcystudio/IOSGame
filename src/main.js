@@ -9,6 +9,7 @@ const config = {
     height: 720,
     backgroundColor: '#000000',
     pixelArt: false,
+    transparent: true,
     scene: [
         Start
     ],
@@ -19,4 +20,3 @@ const config = {
 }
 
 new Phaser.Game(config);
-            
