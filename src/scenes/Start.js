@@ -18,15 +18,19 @@ export class Start extends Phaser.Scene {
 
         this.load.video('background', 'assets/background.mp4');
 
-        // Load 26 transition frames as individual images
-        for (let i = 0; i <= 25; i++) {
-            this.load.spritesheet('transition' + i,
-                'assets/spritesheet/choosepage_boy_galaxytochinese_transition-' + i + '.png',
-                {
-                    frameWidth: 700,
-                    frameHeight: 900
-                });
-        }
+        // // // Load 26 transition frames as individual images
+        // for (let i = 0; i <= 25; i++) {
+        //     this.load.spritesheet('transition' + i,
+        //         'assets/spritesheet/choosepage_boy_galaxytochinese_transition-' + i + '.png',
+        //         {
+        //             frameWidth: 700,
+        //             frameHeight: 900
+        //         });
+        // }
+        this.load.spritesheet('transition_large', 'assets/spritesheet_big/choosepage_boy_transition_large.png', {
+            frameWidth: 700, // or calculated width
+            frameHeight: 900 // or calculated height
+        });
     }
 
     create() {
@@ -43,37 +47,21 @@ export class Start extends Phaser.Scene {
 
         this.add.text(340, 100, 'Mov/Web', { font: '64px Courier', fill: '#ffffff' }).setOrigin(0.5);
 
-        this.add.text(940, 100, 'SpriteSheet', { font: '64px Courier', fill: '#ffffff' }).setOrigin(0.5);
+        this.add.text(940, 100, 'SpriteSheet_large', { font: '64px Courier', fill: '#ffffff' }).setOrigin(0.5);
 
-        let frames = [];
-        for (let i = 0; i <= 25; i++) {
-            frames.push({ key: 'transition' + i });
-        }
         // Only create the animation if it doesn't already exist (prevents error on scene restart)
         this.anims.create({
             key: 'transitionAnim',
-            frames: frames,
-            frameRate: 12, // Adjust as needed
-            repeat: 0      // 0 = play once, -1 = loop
+            frames: this.anims.generateFrameNames('transition_large', { start: 0, end: 102 }),
+            frameRate: 60, // Adjust as needed
+            repeat: -1      // 0 = play once, -1 = loop
         });
 
 
         // Add sprite and play the animation
-        let sprite = this.add.sprite(900, 360, 'transition0');
+        let sprite = this.add.sprite(900, 360, 'transition_large');
         sprite.play('transitionAnim');
 
-
-
-        // const ship = this.add.sprite(740, 360, 'ship');
-
-        // ship.anims.create({
-        //     key: 'fly',
-        //     frames: this.anims.generateFrameNumbers('ship', { start: 0, end: 2 }),
-        //     frameRate: 15,
-        //     repeat: -1
-        // });
-
-        // ship.play('fly');
     }
 
 }
